@@ -10,6 +10,9 @@ import UpdateForm from "../components/UpdateForm.jsx";
 const Card = ({ noteData, idx }) => {
   const noteId = noteData._id;
   const userId = noteData.user;
+  const time = new Date(noteData.createdAt);
+  const time2 = new Date(noteData.updatedAt);
+
   const dispatch = useDispatch();
 
   const handleDelete = async () => {
@@ -21,15 +24,20 @@ const Card = ({ noteData, idx }) => {
 
   return (
     <div className="flex items-start">
-      <div className="w-xs bg-white border-t-6 border-blue-800 rounded shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      <div className="w-xs bg-white border-t-6 border-red-500 rounded shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
         <div className="relative">
           <img
             className="w-full h-35 object-cover"
             src="https://images.unsplash.com/photo-1777661097541-e9ebeffe6aa2?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Card"
           />
-          <p className="absolute top-1 left-3 text-5xl text-gray-400 font-bold">
+          <p className="absolute top-1 left-3 text-5xl text-gray-200 font-bold">
             {idx + 1}
+          </p>
+          <p className="absolute bottom-1 right-2 text-xs text-white/60">
+            {time.getTime() === time2.getTime()
+              ? `Created At: ${time.toLocaleTimeString("en-GB", { hour12: false })}`
+              : `Updated At: ${time2.toLocaleTimeString("en-GB", { hour12: false })}`}
           </p>
         </div>
         <div className="p-4">
@@ -48,14 +56,12 @@ const Card = ({ noteData, idx }) => {
             ))}
           </div>
           <div className="flex items-center justify-between">
-            <button
-              className="mt-3 px-4 py-1.5 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
-            >
+            <button className="mt-3 px-4 py-1.5 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300">
               <Link to={`/update-note/${userId}/${noteId}`}>Update</Link>
             </button>
             <button
               onClick={handleDelete}
-              className="mt-3 px-4 py-1.5 bg-red-700 text-white rounded hover:bg-red-600 transition-colors duration-300"
+              className="mt-3 px-4 py-1.5 bg-red-600 text-white rounded hover:bg-red-500 transition-colors duration-300"
             >
               Delete
             </button>

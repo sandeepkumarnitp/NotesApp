@@ -26,7 +26,7 @@ const AllCards = () => {
     })();
   }, [isAuthenticated, screenLoading]);
   return (
-    <div className="flex flex-wrap gap-15 px-20 pt-25 pb-10 h-screen overflow-y-auto">
+    <div className="flex flex-wrap gap-15 px-20 pt-25 pb-5 h-screen overflow-y-auto">
       {allNotes?.map((note, idx) => (
         <Card key={idx} idx={idx} noteData={note} />
       ))}

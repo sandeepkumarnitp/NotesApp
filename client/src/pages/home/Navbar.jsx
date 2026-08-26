@@ -19,28 +19,34 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await dispatch(logoutUserThunk());
-    
   };
 
   return (
-    <nav className="bg-gray-800 shadow-lg w-full fixed z-5">
+    <nav className="bg-gray-800 shadow shadow-white w-full fixed z-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
         <div className="flex justify-between items-center h-16">
           {/* Website Name/Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-white text-2xl font-bold">NotesApp</h1>
+            <h1 className="text-white text-2xl font-bold">
+              <i className="mr-1 fa-brands fa-notion"></i>NotesApp
+            </h1>
           </div>
 
           {/* Login/Logout Button */}
           <div className="flex items-center gap-4">
             {isLoggedIn ? (
               <>
-                <span className="text-white text-sm font-medium">
-                  🎉Welcome {isAuthenticated ? userProfile?.name : ""}
+                <span className="text-white text-sm font-bold flex items-center">
+                  <i className="mr-1 fa-regular fa-user text-xl"></i>{" "}
+                  <span className="text-xl ">
+                    {isAuthenticated
+                      ? userProfile?.name.trim().split(" ")[0]
+                      : ""}
+                  </span>
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-3 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
                 >
                   Logout
                 </button>

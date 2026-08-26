@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   getNoteThunk,
   updateNoteThunk,
@@ -73,15 +73,19 @@ const UpdateForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-tl from-yellow-300 to-red-400 flex items-center justify-center p-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md space-y-4"
+        className="relative bg-white shadow-lg rounded-xl p-6 w-full max-w-md space-y-4"
       >
         <h2 className="text-2xl font-bold text-gray-700 text-center">
           Update Note
         </h2>
-
+        <Link to="/">
+          <p className="absolute top-4 right-7 font-bold font-sm px-2.5 py-1 text-center bg-gray-200 rounded-2xl ">
+            X
+          </p>
+        </Link>
         {/* Title */}
         <div>
           <label className="block text-gray-600 font-medium mb-1">Title</label>
