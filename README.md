@@ -1,32 +1,25 @@
-# 📝 Notes App
+# 📝 MERN Notes App
 
-A simple, lightweight web application for creating, managing, and storing your daily notes. 
+A full-stack web application built with the MERN stack for managing notes with a dedicated backend and database.
 
 ## 🚀 Features
-
-- **Create & Edit:** Write down your thoughts and update them anytime.
-- **Delete:** Remove notes with a single click.
-- **Persistent Storage:** Notes stay saved even after refreshing the page (using LocalStorage).
-- **Search:** Quickly filter through your notes using the search bar.
-- **Responsive:** Fully functional on mobile, tablet, and desktop screens.
+- **Full CRUD:** Create, Read, Update, and Delete notes.
+- **Database Storage:** All notes are stored securely in MongoDB.
+- **REST API:** Powered by Express and Node.js.
+- **Responsive UI:** Built with React for a fast, single-page experience.
 
 ## 🛠️ Tech Stack
-
-- **HTML5:** Semantic structure.
-- **CSS3:** Custom styling (or Tailwind/Bootstrap).
-- **JavaScript:** Logic and DOM manipulation.
-- **Storage:** LocalStorage API.
+- **Frontend:** React.js
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (via Mongoose)
+- **State Management:** Hooks / Context API
 
 ## 📥 Installation
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/notes-app.git
-
-2. **Navigate to the folder:**
-
-    ```Bash
-    cd notes-app
+   git clone https://github.com/yourusername/mern-notes-app.git
+   cd mern-notes-app
 
 ## Usage
 - 1.**Add a Note:** Click the "Add Note" button, type your text, and save.
